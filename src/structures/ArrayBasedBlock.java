@@ -12,7 +12,7 @@ public class ArrayBasedBlock {
     }
 
     public ArrayBasedBlock(int n){
-
+        block = new int[n][n];
     }
 
     public int[][] getBlock(){
