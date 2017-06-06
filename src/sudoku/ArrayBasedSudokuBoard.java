@@ -11,10 +11,13 @@ import java.util.Random;
 public class ArrayBasedSudokuBoard {
     
     private ArrayBasedBlock[][] board;
+    //Matrix to store all numbers played in the game, i.e. a number played block row 1 col 3 would be at position matrix index [0][8]
+    private int[][] positionMatrix;
 
     //Generate 9x9 Sudoku puzzle
     public ArrayBasedSudokuBoard(){
        board = BoardLogic.newBoard(3);
+       positionMatrix = new int[3][3];
     }
 
     //Generate nxn Sudoku puzzle
