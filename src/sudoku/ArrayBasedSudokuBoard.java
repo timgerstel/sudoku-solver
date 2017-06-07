@@ -17,7 +17,7 @@ public class ArrayBasedSudokuBoard {
     //Generate 9x9 Sudoku puzzle
     public ArrayBasedSudokuBoard(){
        board = BoardLogic.newBoard(3);
-       positionMatrix = new int[3][3];
+       positionMatrix = new int[9][9];
     }
 
     //Generate nxn Sudoku puzzle
@@ -26,7 +26,12 @@ public class ArrayBasedSudokuBoard {
     }
 
     public void toConsole(){
-    
+        for(int i = 0; i < positionMatrix.length; i++){
+            for(int j = 0; j < positionMatrix[0].length; j++){
+                System.out.print(positionMatrix[i][j]);
+            }
+            System.out.println(" ");
+        }
     }
 
 }
