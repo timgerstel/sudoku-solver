@@ -13,16 +13,19 @@ public class ArrayBasedSudokuBoard {
     private ArrayBasedBlock[][] board;
     //Matrix to store all numbers played in the game, i.e. a number played block row 1 col 3 would be at position matrix index [0][8]
     private int[][] positionMatrix;
+    private final int DEFAULT_SIZE = 9;
 
-    //Generate 9x9 Sudoku puzzle
+    //Default constructor
     public ArrayBasedSudokuBoard(){
-       board = BoardLogic.newBoard(3);
-       positionMatrix = new int[9][9];
+        //Generate 9 x 9 sudoku board with difficult 1
+       board = BoardLogic.newBoard(1);
+       positionMatrix = new int[DEFAULT_SIZE][DEFAULT_SIZE];
     }
 
     //Generate nxn Sudoku puzzle
-    public ArrayBasedSudokuBoard(int n){
-    
+    public ArrayBasedSudokuBoard(int n, int difficulty){
+        board = BoardLogic.newBoard(n, difficulty);
+        positionMatrix = new int[n][n];
     }
 
     public void toConsole(){
