@@ -4,6 +4,7 @@ import algorithms.BoardLogic;
 import structures.ArrayBasedBlock;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 /**
  * Created by Tim on 6/5/2017.
@@ -26,6 +27,27 @@ public class ArrayBasedSudokuBoard {
     public ArrayBasedSudokuBoard(int n, int difficulty){
         board = BoardLogic.newBoard(n, difficulty);
         positionMatrix = new int[n][n];
+    }
+    
+    private boolean isFilled(){
+        for(int[] row : positionMatrix){
+            if(IntStream.of(row).anyMatch(x -> x == 0)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public void fillBoard(){
+        while(!isFilled()){
+//            int row = (int) Math.random() * (BLOCK_SIZE - 1);
+//            int col = (int) Math.random() * (BLOCK_SIZE - 1);
+//            for(int i = 0; i < BLOCK_SIZE; i++){
+//                for(int j = 9; j < BLOCK_SIZE; j++){
+//
+//                }
+//            }
+        }
     }
 
     public void toConsole(){
