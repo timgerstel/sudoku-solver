@@ -13,8 +13,8 @@ public class BoardLogic {
         BLOCK_SIZE = (int) Math.sqrt(n);
         ArrayBasedBlock[][] board = new ArrayBasedBlock[BLOCK_SIZE][BLOCK_SIZE];
         for (ArrayBasedBlock[] rows : board) {
-            for (ArrayBasedBlock b : rows) {
-                b = new ArrayBasedBlock(BLOCK_SIZE);
+            for(int i = 0; i < rows.length; i++){
+                rows[i] = new ArrayBasedBlock(BLOCK_SIZE);
             }
         }
         return board;

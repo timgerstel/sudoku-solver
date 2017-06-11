@@ -17,11 +17,23 @@ public class ABSBTest {
     @Rule
     public Timeout global = new Timeout(5000L, TimeUnit.MILLISECONDS);
     
-    private ArrayBasedSudokuBoard board;
+    private ArrayBasedSudokuBoard board, board2;
     
     @Before
     public void before(){
         board = new ArrayBasedSudokuBoard();
+        board2 = new ArrayBasedSudokuBoard(25,1);
+    }
+    
+    @Test
+    public void testABSB(){
+        assertEquals(3, board.getBlockSize());
+        assertEquals(5, board2.getBlockSize());
+    }
+    
+    @Test
+    public void testIsFilled(){
+        assertFalse(board.isFilled());
     }
     
     @Test
