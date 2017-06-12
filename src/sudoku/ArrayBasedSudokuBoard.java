@@ -17,7 +17,7 @@ public class ArrayBasedSudokuBoard {
         //Generate 9 x 9 sudoku board with difficult 1
         board = new int[DEFAULT_SIZE][DEFAULT_SIZE];
         bl = new BoardLogic(board);
-        board = bl.newBoard(DEFAULT_SIZE, 1);
+        board = bl.newBoard(1);
         BLOCK_SIZE = 3;
     }
 
@@ -25,7 +25,7 @@ public class ArrayBasedSudokuBoard {
     public ArrayBasedSudokuBoard(int n, int difficulty){
         board = new int[n][n];
         bl = new BoardLogic(board);
-        board = bl.newBoard(n, difficulty);
+        board = bl.newBoard(difficulty);
         BLOCK_SIZE = bl.getBlockSize();
     }
     
