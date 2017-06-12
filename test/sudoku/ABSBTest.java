@@ -2,6 +2,7 @@ package sudoku;
 
 import static org.junit.Assert.*;
 
+import algorithms.BoardLogic;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Tim on 6/6/2017.
  */
-public class ABSBTest {
+public class BoardLogicTest {
     
     @Rule
     public Timeout global = new Timeout(5000L, TimeUnit.MILLISECONDS);
@@ -29,11 +30,6 @@ public class ABSBTest {
     public void testABSB(){
         assertEquals(3, board.getBlockSize());
         assertEquals(5, board2.getBlockSize());
-    }
-    
-    @Test
-    public void testIsFilled(){
-        assertFalse(board.isFilled());
     }
     
     @Test

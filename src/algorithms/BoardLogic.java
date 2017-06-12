@@ -1,17 +1,21 @@
 package algorithms;
 
-import structures.ArrayBasedBlock;
-
 import java.util.stream.IntStream;
 
 public class BoardLogic {
     
-    private static int BLOCK_SIZE;
+    /** Class can be used after an ArrayBasedSudokuBoard has been initialized **/
+    
+    private static int[][] board;
+    
+    public BoardLogic(int[][] board){
+        this.board = board;
+    }
     
     //Generates a new blank board
     //Args: block size = sqrt(n)
     //Returns blank sudoku board
-    public static boolean isFull(int[][] board){
+    public static boolean isFull(){
         for(int[] row : board){
             if(IntStream.of(row).anyMatch(x -> x == 0)){
                 return false;
@@ -20,27 +24,17 @@ public class BoardLogic {
         return true;
     }
     
-    private static int[][] fillBoard(int[][] board, double n) {
-        BLOCK_SIZE = (int) Math.sqrt(n);
+    private static int[][] fillBoard(double n) {
         int[][] b = board;
-        while(!isFull(b)){
-        
-        }
         return b;
     }
     
     public static int getBlockSize(){
-        return BLOCK_SIZE;
+        return (int) Math.sqrt(board[0].length);
     }
-    
-    public static int[][] newBoard(int[][] board, int difficulty){
-        int[][] b =  fillBoard(board, 9);
-        return b;
-    }
-    
     //Note: make this generate a random, completely correct board then remove numbers based on a difficulty
-    public static int[][] newBoard(int board[][], int n, int difficulty){
-        int[][] b = fillBoard(board, n);
+    public static int[][] newBoard(int n, int difficulty){
+        int[][] b = fillBoard(n);
         return b;
     }
 }
