@@ -27,12 +27,17 @@ public class BoardLogic {
     private static int[][] fillBoard() {
         int[][] b = board;
         int MAX = b[0].length;
-        for(int i = 0; i <= b.length; i++) {
+        for(int i = 0; i < b.length; i++) {
             System.out.println("Current row: " + i);
             for (int j = 0; j < MAX; j++) {
                 int value = (int) (Math.random() * (MAX - 1)) + 1; //generate random value between 1 and max
-                while (!isValid(b, value, i, j)) { //check if move is valid
-                    value = (int) (Math.random() * (MAX - 1)) + 1; //if move is invalid, generate new random value
+                boolean foundValid = false;
+                while (!foundValid) { //check if move is valid
+                    if(isValid(b, value, i, j)){
+                        foundValid = true;
+                    } else {
+                        value = (int) (Math.random() * (MAX - 1)) + 1; //if move is invalid, generate new random value
+                    }
                 }
                 System.out.println("Value for row " + i + " column " + j + ": " + value);
                 b[i][j] = value;
