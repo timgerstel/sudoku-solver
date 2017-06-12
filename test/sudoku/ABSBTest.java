@@ -10,10 +10,7 @@ import org.junit.rules.Timeout;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Tim on 6/6/2017.
- */
-public class BoardLogicTest {
+public class ABSBTest {
     
     @Rule
     public Timeout global = new Timeout(5000L, TimeUnit.MILLISECONDS);
