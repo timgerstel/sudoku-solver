@@ -2,6 +2,8 @@ package algorithms;
 
 import structures.ArrayBasedBlock;
 
+import java.util.stream.IntStream;
+
 public class BoardLogic {
     
     private static int BLOCK_SIZE;
@@ -9,25 +11,36 @@ public class BoardLogic {
     //Generates a new blank board
     //Args: block size = sqrt(n)
     //Returns blank sudoku board
-    private static ArrayBasedBlock[][] blankBoard(double n) {
-        BLOCK_SIZE = (int) Math.sqrt(n);
-        ArrayBasedBlock[][] board = new ArrayBasedBlock[BLOCK_SIZE][BLOCK_SIZE];
-        for (ArrayBasedBlock[] rows : board) {
-            for(int i = 0; i < rows.length; i++){
-                rows[i] = new ArrayBasedBlock(BLOCK_SIZE);
+    public static boolean isFull(int[][] board){
+        for(int[] row : board){
+            if(IntStream.of(row).anyMatch(x -> x == 0)){
+                return false;
             }
         }
-        return board;
+        return true;
     }
     
-    public static ArrayBasedBlock[][] newBoard(int difficulty){
-        ArrayBasedBlock[][] board = blankBoard(9);
-        return board;
+    private static int[][] fillBoard(int[][] board, double n) {
+        BLOCK_SIZE = (int) Math.sqrt(n);
+        int[][] b = board;
+        while(!isFull(b)){
+        
+        }
+        return b;
+    }
+    
+    public static int getBlockSize(){
+        return BLOCK_SIZE;
+    }
+    
+    public static int[][] newBoard(int[][] board, int difficulty){
+        int[][] b =  fillBoard(board, 9);
+        return b;
     }
     
     //Note: make this generate a random, completely correct board then remove numbers based on a difficulty
-    public static ArrayBasedBlock[][] newBoard(int n, int difficulty){
-        ArrayBasedBlock[][] board = blankBoard(n);
-        return board;
+    public static int[][] newBoard(int board[][], int n, int difficulty){
+        int[][] b = fillBoard(board, n);
+        return b;
     }
 }
