@@ -51,6 +51,7 @@ public class BoardLogic {
     private static boolean isValid(int[][] board, int value, int row, int col){
         int blockRow = row % getBlockSize();
         int blockCol = col % getBlockSize();
+        System.out.println("Check if surrounding block is valid");
         for(int i = blockRow; i < blockRow + getBlockSize(); i++){ //check if block is valid
             for(int j = 0; j < blockCol; j++){
                 if(board[i][j] == value){
@@ -58,11 +59,13 @@ public class BoardLogic {
                 }
             }
         }
+        System.out.println("Check if Row is Valid");
         for(int val : board[row]){
             if(val == value){
                 return false;
             }
         }
+        System.out.println("Check if col is valid");
         for(int i = 0; i < board.length; i++){
             if(board[i][col] == value){
                 return false;

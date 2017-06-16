@@ -20,12 +20,14 @@ public class ABSBTest {
     @Before
     public void before(){
         board = new ArrayBasedSudokuBoard();
+        board2 = new ArrayBasedSudokuBoard(4, 1);
        // board2 = new ArrayBasedSudokuBoard(25,1);
     }
     
     @Test
     public void testABSB(){
         assertEquals(3, board.getBlockSize());
+        assertEquals(2, board2.getBlockSize());
         //assertEquals(5, board2.getBlockSize());
     }
     
