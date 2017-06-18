@@ -1,5 +1,7 @@
 package algorithms;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -34,18 +36,21 @@ public class BoardLogic {
             for (int j = 0; j < MAX; j++) {
                 System.out.println("\nCURRENT COL: " + j);
                 int[] moves = getValidMoves(b, i, j);
-                int value = (int) (Math.random() * (moves.length - 1)); //generate random value between 1 and max
+                int value = (int) (Math.random() * (moves.length)); //generate random value between 1 and max
                 b[i][j] = moves[value];
                 System.out.println("Random value: " + moves[value]);
             }
         }
+        toConsole();
         return b;
     }
     
     private static int[] getValidMoves(int[][] board, int row, int col){
         int[] currentMoves = IntStream.rangeClosed(1, board[0].length).toArray();
         int blockRow = row / getBlockSize();
+        System.out.println("\nBoard Row: " + row + " | Block Row Index: " + blockRow);
         int blockCol = col / getBlockSize();
+        System.out.println("Board Col: " + col + " | Block Col Index: " + blockCol);
         List<Integer> moves = new ArrayList<>();
         //Check row and col
         for(int i = 0; i < board[0].length; i++) {
@@ -82,5 +87,14 @@ public class BoardLogic {
         System.out.println("newBoard: Filling empty board");
         int[][] b = fillBoard();
         return b;
+    }
+    
+    public static void toConsole(){
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[0].length; j++){
+                System.out.print(board[i][j]);
+            }
+            System.out.println(" ");
+        }
     }
 }
